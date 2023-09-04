@@ -1,0 +1,51 @@
+{
+    "name": "sonypradana/best",
+    "description": "Prefix for better naming",
+    "keywords": ["pest", "phpunit"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sony Pradana",
+            "email": "sonypradana@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.2.0",
+        "pestphp/pest": "^2.0.0",
+        "phpstan/phpstan": "^1.8.6",
+        "symfony/var-dumper": "^6.2.0"
+    },
+    "autoload": {
+        "files": [
+            "src/helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "lint": "pint -v",
+        "test:lint": "pint --test -v",
+        "test:types": "phpstan analyse --ansi",
+        "test:unit": "pest --colors=always",
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ]
+    }
+}
